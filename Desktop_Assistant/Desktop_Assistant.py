@@ -31,7 +31,8 @@ def takeCommand(): # It takes microphone input from the user and returns string 
     with sr.Microphone() as source:
         print('Listening...')
         r.pause_threshold=1
-        audio=r.listen(source)
+        #audio=r.listen(source)
+        audio=r.listen(source,timeout=8,phrase_time_limit=8)
     try:
         print('Recognizing...')
         query=r.recognize_google(audio, language='en-in')
